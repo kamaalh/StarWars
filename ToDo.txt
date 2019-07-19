@@ -1,0 +1,6 @@
+1. Tech Stack(CRA,Router,Redux,Saga, StyledComps)
+2. Functional(Login flow, Search page)
+3. Styling(using styled comps)
+4. Test(Jest, react-test-renderer)
+5. Ensure standards(eslint,...)
+6. Host the app(github)
