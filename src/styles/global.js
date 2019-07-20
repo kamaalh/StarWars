@@ -6,6 +6,7 @@ export default `body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background: #283747;
 }
 
 code {
@@ -16,10 +17,13 @@ code {
 input {
   display: block;
   margin: 20px auto;
+  height: 25px;
 }
 
 button {
-  background-color: blue;
+  background-color: #A6ACAF;
   color: #ffffff;
+  width: 173px;
+  height: 30px;
 }
 `;

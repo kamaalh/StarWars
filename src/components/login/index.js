@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import ROUTES from "../../router/routes";
+import { LoginContainer, Heading } from "./login.style";
 
 class LoginForm extends Component {
   clickHandler = () => {
@@ -12,18 +13,17 @@ class LoginForm extends Component {
 
   render() {
     const { isLoggedIn, isLoading } = this.props;
-    return isLoggedIn ? 
+    return isLoggedIn ? (
       <Redirect to={ROUTES.SEARCH} />
-     : 
-      <React.Fragment>
-        <h2>Please login</h2>
-        {isLoading && <h3>loading...</h3>}
-        <input type="text" ref={usn => this.username = usn} />
-        <input type="password" ref={psw => this.password = psw} />
-
+    ) : (
+      <LoginContainer>
+        <Heading>Welcome to Star Wars Planets Infobase</Heading>
+        <input type="text" ref={usn => (this.username = usn)} />
+        <input type="password" ref={psw => (this.password = psw)} />
         <button onClick={this.clickHandler}>Login</button>
-      </React.Fragment>
-    ;
+        {isLoading && <h3>loading...</h3>}
+      </LoginContainer>
+    );
   }
 }
 
