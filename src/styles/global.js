@@ -13,7 +13,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+ h1 {
+   color: #ffffff;
+ }
 input {
   display: block;
   margin: 20px auto;

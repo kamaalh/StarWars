@@ -27,7 +27,6 @@ const loginReducer = (state = {}, action) => {
 };
 
 const searchReducer = (state = {}, action) => {
-  console.log("action => ", action);
   switch (action.type) {
     case FETCH_PLANETS:
       return { ...state, isLoading: true };
