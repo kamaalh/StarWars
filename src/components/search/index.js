@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import {List, ListItem } from "./search.style";
+import {SearchContainer, SearchInput, List, ListItem, PlanetInfoContainer } from "./search.style";
 import PlanetInfo from "./planet.info.js";
 
 class SearchForm extends Component {
   state = {
     searchedPlanets: [],
     selectedPlanet : null
-  };
-
-  
+  };  
 
   changeHandler = (e) => {
     let searchString = e.target.value;
@@ -21,7 +19,6 @@ class SearchForm extends Component {
     this.setState({searchedPlanets});
     
   };
-
   
   selectPlanet = (e) => {
     console.log(e.target.innerHTML);
@@ -29,19 +26,22 @@ class SearchForm extends Component {
       return planet.name.toLowerCase() === e.target.innerHTML.toLowerCase();
     });
     this.setState({selectedPlanet:selectedPlanets[0]});
-  }
-  
+  }  
 
   render() {
     const {searchedPlanets, selectedPlanet} = this.state; 
     return (
       <React.Fragment>
         <h1>Please type in planet name</h1>
-        <input type="text" onChange={this.changeHandler} />
-        <List>
-          {searchedPlanets.map( (planet) => <ListItem key={planet.name} onClick={this.selectPlanet}>{planet.name}</ListItem>)}
-        </List>
-        <PlanetInfo info={selectedPlanet}></PlanetInfo>
+        <SearchContainer>
+          <SearchInput type="text" onChange={this.changeHandler} />
+          <List>
+            {searchedPlanets.map( (planet) => <ListItem key={planet.name} onClick={this.selectPlanet}>{planet.name}</ListItem>)}
+          </List>
+        </SearchContainer>
+        <PlanetInfoContainer>
+          <PlanetInfo info={selectedPlanet}></PlanetInfo>
+        </PlanetInfoContainer>
       </React.Fragment>
     );
   }
